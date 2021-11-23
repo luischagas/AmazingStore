@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AmazingStore.Application\AmazingStore.Application.csproj" />
+    <ProjectReference Include="..\AmazingStore.Domain.Shared\AmazingStore.Domain.Shared.csproj" />
+    <ProjectReference Include="..\AmazingStore.Infra.CrossCutting.AspNetFilters\AmazingStore.Infra.CrossCutting.AspNetFilters.csproj" />
+    <ProjectReference Include="..\AmazingStore.Infra.CrossCutting.Services\AmazingStore.Infra.CrossCutting.Services.csproj" />
+    <ProjectReference Include="..\AmazingStore.Infra.Data\AmazingStore.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
