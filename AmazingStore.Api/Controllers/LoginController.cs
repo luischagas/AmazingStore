@@ -1,13 +1,13 @@
-﻿using AmazingStore.Application.Interfaces;
+﻿using System.Collections.Generic;
+using System.Net;
+using System.Threading.Tasks;
+using AmazingStore.Application.Interfaces;
 using AmazingStore.Application.Models.Common;
 using AmazingStore.Application.Models.Login.Request;
 using AmazingStore.Application.Models.Login.Response;
 using AmazingStore.Domain.Shared.Notifications;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using System.Collections.Generic;
-using System.Net;
-using System.Threading.Tasks;
 
 namespace AmazingStore.Api.Controllers
 {
@@ -33,15 +33,14 @@ namespace AmazingStore.Api.Controllers
 
         #region Public Methods
 
-
         /// <summary>
-        /// Authenticates the user, returns a bearer token
+        ///     Authenticates the user, returns a bearer token
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost("signin")]
-        [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(AppServiceResponse<SignInModelResponse>))]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, Type = typeof(AppServiceResponse<ICollection<Notification>>))]
+        [SwaggerResponse((int) HttpStatusCode.OK, Type = typeof(AppServiceResponse<SignInModelResponse>))]
+        [SwaggerResponse((int) HttpStatusCode.BadRequest, Type = typeof(AppServiceResponse<ICollection<Notification>>))]
         public async Task<IActionResult> SignIn([FromBody] SignInModelRequest request)
         {
             if (ModelState.IsValid is false)
@@ -60,13 +59,13 @@ namespace AmazingStore.Api.Controllers
         }
 
         /// <summary>
-        /// Adds a new user using the properties supplied, returns a GUID reference for the user created
+        ///     Adds a new user using the properties supplied, returns a GUID reference for the user created
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost("signup")]
-        [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(AppServiceResponse<SignUpResponse>))]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, Type = typeof(AppServiceResponse<ICollection<Notification>>))]
+        [SwaggerResponse((int) HttpStatusCode.OK, Type = typeof(AppServiceResponse<SignUpResponse>))]
+        [SwaggerResponse((int) HttpStatusCode.BadRequest, Type = typeof(AppServiceResponse<ICollection<Notification>>))]
         public async Task<IActionResult> SignUp([FromBody] SignUpModelRequest request)
         {
             if (ModelState.IsValid is false)
